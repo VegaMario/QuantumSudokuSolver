@@ -99,7 +99,7 @@ def print_result(sample, sudoku):
             copy[lay][row][col] = int(val)
 
     # print and check the layers in the x-direction planes
-    print('X Direction layers')
+    print('----------X Direction layers----------')
     for i in range(n):
         lines = []
         for j in range(n):
@@ -118,7 +118,7 @@ def print_result(sample, sudoku):
         print()
 
     # print and check the layers in the y-direction planes
-    print('Y Direction Layers')
+    print('----------Y Direction Layers----------')
     for k in range(n):
         lines = []
         for j in range(n):
@@ -137,7 +137,7 @@ def print_result(sample, sudoku):
         print()
 
     # print and check the layers in the z-direction planes
-    print('Z Direction Layers')
+    print('----------Z Direction Layers----------')
     for j in range(n):
         lines = []
         for i in range(n):
@@ -159,6 +159,7 @@ def print_result(sample, sudoku):
         print()
 
     # nxnxn_plot.plot_3D_sudoku(copy, result)  # now plot the results
+    print("\nThe Solution is {}".format(result))
     return copy, result
 
 

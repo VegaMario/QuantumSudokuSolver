@@ -94,6 +94,7 @@ def print_result(sample, sudoku_puzzle):
         result = "Incorrect"
 
     # nxn_plot.plot_3D_sudoku(copy, result)
+    print("\nThe Solution is {}".format(result))
     return copy, result
 
 
