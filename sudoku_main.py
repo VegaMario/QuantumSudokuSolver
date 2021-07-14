@@ -32,8 +32,8 @@ def solve(filename, qubotype, samplername, numreads, plot):
 
 def main():
     # print('Hello Cruel World!')
-    # generate(3, 9, 500)
-    solve("4x4x4", "complex", "neal", 10, 1)
+    # generate(3, 16, 2500)
+    solve("16x16x16", "complex", "neal", 10, 1)
 
 
 start_time = time.time()
