@@ -87,3 +87,5 @@ Just specify the number of blanks you want the puzzle to have. It tells you the 
  
         Number of Blanks (max is 64):63
         
+### Additional Comments
+The sampler is set to the "neal" simulated annealer by default, but it can be changed by modifying the sudoku_main.py file.
