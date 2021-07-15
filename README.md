@@ -21,4 +21,31 @@ My equations for the 3D sudoku solver are similar to those of the 2D sudoku. How
 
 Each variable is represented by a pair of c and d letters. c represents a particular cell of the sudoku puzzle using coordinates (i, j, k), and d represents the particular lth digit being used out of the n possible digits.
 
+## How the solver works
+The program I have written for my Sudoku solver can be divided into two parts: the nxn Sudoku solver (2D) and the nxnxn Sudoku solver (3D). There are 4 python files associated with each solver. 
 
+For the nxn sudoku solver, there are the nxn_generate.py, nxn_plot.py, nxn_QUBO.py, and nxn_solver.py files.
+
+Similarly, for the nxnxn sudoku solver, there are the nxnxn_generate.py, nxnxn_plot.py, nxnxn_QUBO.py, and nxnxn_solver.py files.
+
+### generate.py
+This python file is used for generating Sudoku puzzles of arbitrary size, and the user can specify the number of empty cells that should initially be on the Sudoku puzzle. The nxn_generate.py file generates 2D nxn sudoku puzzles and the nxnxn_generate.py file generates 3D nxnxn sudoku puzzles by generating n sudoku layers that would form the nxnxn cube.
+
+I did not come up with this sudoku generator completely by myself. Credit for this part of the program goes to Emma Hogan (https://github.com/roonil-wazlib/3D_Sudoku). I only had make small modifications to their program in order to generate puzzles of arbitrary size. This was really convenient because it allowed me to efficiently test my program on various sizes and difficulties of sudoku puzzles without having to manually copy puzzles from different internet sites.
+
+### plot.py
+This python file is used for generating nice-looking visuals of the results obtained by my solver. It actually plots the solution onto a sudoku grid using matplotlib, which is really convenient for reading larger sudoku puzzles. The nxn_plot.py file just plots the result onto an nxn sudoku grid, and the nxnxn_plot.py file actually creates a visualization of the cube with the numbers filled in and then it proceeds to display the 3n nxn sudoku layers, which make up the nxnxn cube, onto nxn sudoku grids.
+
+### QUBO.py
+This python file is used for generating the QUBO matrices needed for solving the sudoku puzzles. These files are based on the QUBO equations which I showed in section 3 of this report. Within these files, there is actually two options for generating a QUBO matrix: the simple QUBO generator and the complex QUBO generator. The simple QUBO only takes into account the constraint parts of the QUBO equations I formulated, and the complex QUBO will take into account both the objective and constraint parts of the QUBO equations I formulated. I did this because I was initially unsure of the effectiveness of the objective function on the full QUBO equation, so I created these two options to allow me to quickly switch between the two versions of the QUBO equations.
+
+### solver.py
+This python file acts kind of like a main file for each version of sudoku. Within this file, the conversion of the QUBO matrix into a BQM occurs as well as the sampling of the BQM to obtain the final results. Additionally, I added some functions into these files which enable the program to determine if the solution found is correct and to print the results onto the screen.
+
+## Additional Files
+
+### sudoku_main.py
+This python file acts as the main controller for the entire program. It has access to all the other files and the user can generate and solve sudoku puzzles of 2D or 3D type directly from this file.
+
+### The sudoku .txt files
+Looking into the directory of the program, you will see that there are various .txt files of varying names, such as “9x9.txt” or “9x9x9.txt”. These are actually the files that store the generated example puzzles which the solver attempts to solve. If it is in the “nxn.txt” format, then it is a 2D puzzle, and similarly the “nxnxn.txt” format means that it is a 3D puzzle.
