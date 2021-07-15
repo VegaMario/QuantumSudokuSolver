@@ -32,9 +32,6 @@ def solve(filename, qubotype, samplername, numreads, plot):
 
 
 def main():
-    # print('Hello Cruel World!')
-    # generate(3, 16, 1)
-
     # python sudoku_main.py solve 9x9x9
     # python sudoku_main.py generate 9x9x9
     operation = sys.argv[1]
