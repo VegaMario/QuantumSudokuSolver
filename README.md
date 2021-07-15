@@ -66,6 +66,8 @@ You need python 3, Dwave Ocean sdk, and matplotlib
 Run the program on a terminal
 
 ## step 1
+You just run the sudoku_main.py file and provide two additional arguements. One is to specify if you want to solve or generate a sudoku puzzle, and the other is to specify the puzzle you want to solve or generate. Make sure to only use "solve" or "generate" for the first argument, and "nxn" or "nxnxn" format for the second argument.
+
         (ocean) C:\Users\mario\PycharmProjects\QuantumSudokuFinal>python sudoku_main.py solve 4x4x4
     or
         (ocean) C:\Users\mario\PycharmProjects\QuantumSudokuFinal>python sudoku_main.py generate 4x4x4
