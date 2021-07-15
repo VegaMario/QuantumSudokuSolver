@@ -63,4 +63,23 @@ It can solve puzzles of sizes 4x4x4-25x25x25. Possibly more, but I have not trie
 You need python 3, Dwave Ocean sdk, and matplotlib
 
 ## How to use the solver
+Run the program on a terminal
 
+## step 1
+        (ocean) C:\Users\mario\PycharmProjects\QuantumSudokuFinal>python sudoku_main.py solve 4x4x4
+    or
+        (ocean) C:\Users\mario\PycharmProjects\QuantumSudokuFinal>python sudoku_main.py generate 4x4x4
+## step 2
+### if solving:
+You have to specify which QUBO generator you want to use. Complex QUBO includes a graph coloring application in the equations, and simple QUBO does not.
+
+Then you must specify if you want to make a plot or not. 1 for yes, 0 for no.
+
+        QUBO Type (complex or simple): complex
+        Make Plot? (1 or 0): 1
+        
+### if generating:
+Just specify the number of blanks you want the puzzle to have. It tells you the maximum number of blanks the puzzle can have, so don't go over that number.
+ 
+        Number of Blanks (max is 64):63
+        
