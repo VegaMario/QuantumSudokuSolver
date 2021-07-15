@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 import math
 
-'''Complete'''
-
 
 # function used for plotting the solution obtained, using matplotlib
 def plot_2D_sudoku(sudoku, result):

@@ -1,8 +1,6 @@
 from collections import defaultdict
 import math
 
-'''About Complete'''
-
 
 # generate variables in the form of layer,row,column_value
 def var_generate(lay, row, col, val):

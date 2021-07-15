@@ -8,7 +8,6 @@ from dwave_qbsolv import QBSolv
 import nxn_QUBO
 
 # By Mario Vega
-'''About Complete'''
 # generate the variables
 import nxn_plot
 

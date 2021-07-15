@@ -8,7 +8,8 @@ import greedy
 from dwave_qbsolv import QBSolv
 import nxnxn_QUBO
 import nxnxn_plot
-'''About Complete'''
+
+
 # generate variables in the form of layer,row,column_value
 
 def var_generate(lay, row, col, val):
@@ -72,7 +73,7 @@ def givens_fill(bqm, sudoku):
     for layer in range(len(sudoku)):
         for row in range(len(sudoku)):
             for column in range(len(sudoku)):
-                if sudoku[layer][row][column] != 0: # If a cell in the sudoku puzzle is not empty
+                if sudoku[layer][row][column] != 0:  # If a cell in the sudoku puzzle is not empty
                     given_var = var_generate(layer, row, column, sudoku[layer][row][column])
 
                     bqm.fix_variable(given_var, 1)

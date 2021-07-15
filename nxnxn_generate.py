@@ -6,7 +6,6 @@ import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 import nxn_generate
 
-'''Complete'''
 # credit for this sudoku generator goes to  Emma Hogan (https://github.com/roonil-wazlib)
 # I only modified her code slightly to be able to generate sudoku puzzles of arbitrary size
 
@@ -60,7 +59,7 @@ def print_result(sudoku):
             print()
         print()
 
-
+# store the sudoku puzzle into a txt file
 def write_file(name, sudoku):
     n = len(sudoku)
     f = open(name + ".txt", "w+")
@@ -73,9 +72,10 @@ def write_file(name, sudoku):
         f.write("\n")
 
 
+# used for placing a number empty spots on the sudoku puzzle
 def coordinate_map(sudoku, blanks_num):
     coord_list = []
-
+    # making a list of coordinates
     n = len(sudoku)
     for i in range(n):
         for j in range(n):
@@ -83,6 +83,7 @@ def coordinate_map(sudoku, blanks_num):
                 coord_list.append(var_gen(i, j, k))
     coord_map = set(coord_list)
 
+    # filling random spots in the sudoku puzzle with empty spots, represented as 0s
     for i in range(blanks_num):
         coord = random.choice(coord_list)
         lay, row, col = map(int, coord.split(','))
@@ -91,10 +92,12 @@ def coordinate_map(sudoku, blanks_num):
         coord_list = list(coord_map)
 
 
+# format that will be used for the coordinates
 def var_gen(lay, row, col):
     return f"{lay},{row},{col}"
 
 
+# generate a puzzle of size n with blanks_num number of blanks
 def gen_nxnxn(n, blanks_num):
     name = "{}x{}x{}".format(n, n, n)
     board = generate_3d_board(int(math.sqrt(n)))

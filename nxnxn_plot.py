@@ -2,9 +2,6 @@ import matplotlib.pyplot as plt
 import math
 
 
-'''Complete'''
-
-
 # function used for plotting the solution obtained, using matplotlib
 def plot_3D_sudoku(sudoku, result):
     n = len(sudoku) # size of the sudoku puzzle

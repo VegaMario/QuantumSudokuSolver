@@ -1,6 +1,5 @@
 from collections import defaultdict
 import math
-'''Complete'''
 
 
 def var_generate(row, col, val):

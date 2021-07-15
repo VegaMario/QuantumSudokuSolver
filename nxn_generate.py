@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 
-'''Complete'''
+
 # credit for this sudoku generator goes to  Emma Hogan (https://github.com/roonil-wazlib)
 # I only modified her code slightly to be able to generate sudoku puzzles of arbitrary size
 
@@ -63,15 +63,17 @@ def relabel_values(board):
     return output
 
 
+# used for filling in the puzzle with empty spots, represented as 0s
 def coordinate_map(sudoku, blanks_num):
     coord_list = []
-
+    # make a list of coordinates
     n = len(sudoku)
     for i in range(n):
         for j in range(n):
             coord_list.append(var_gen(i, j))
     coord_map = set(coord_list)
 
+    # empty random coordinates
     for i in range(blanks_num):
         coord = random.choice(coord_list)
         row, col = map(int, coord.split(','))
@@ -80,6 +82,7 @@ def coordinate_map(sudoku, blanks_num):
         coord_list = list(coord_map)
 
 
+# this formate will be used for the coordinates of the puzzle
 def var_gen(row, col):
     return f"{row},{col}"
 
@@ -93,6 +96,7 @@ def print_result(sudoku_puzzle):
         print()
 
 
+# create a txt file to store the puzzle
 def write_file(name, sudoku):
     f = open(name + ".txt", "w+")
     for row in sudoku:  # print the results
@@ -101,6 +105,7 @@ def write_file(name, sudoku):
         f.write("\n")
 
 
+# generate a puzzle of size n with blanks_num number of blanks
 def gen_nxn(n, blanks_num):
     name = "{}x{}".format(n, n)
     board = generate_shuffled_2d_board(int(math.sqrt(n)))

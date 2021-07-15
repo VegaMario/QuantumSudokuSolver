@@ -4,9 +4,8 @@ import nxnxn_generate, nxnxn_plot, nxnxn_QUBO, nxnxn_solver
 import sys
 from hybrid.reference import KerberosSampler
 
-'''Maybe Complete'''
 
-
+# generate a sudoku puzzle
 def generate(dim, nsize, blanks):
     if dim == 2:
         nxn_generate.gen_nxn(nsize, blanks)
@@ -16,6 +15,7 @@ def generate(dim, nsize, blanks):
         print("Invalid")
 
 
+# solve a sudoku puzzle
 def solve(filename, qubotype, samplername, numreads, plot):
     dim = 1
     for i in filename:
@@ -34,6 +34,9 @@ def solve(filename, qubotype, samplername, numreads, plot):
 def main():
     # print('Hello Cruel World!')
     # generate(3, 16, 1)
+
+    # python sudoku_main.py solve 9x9x9
+    # python sudoku_main.py generate 9x9x9
     operation = sys.argv[1]
     filename = sys.argv[2]
 
@@ -53,7 +56,7 @@ def main():
             else:
                 break
         num = int(num)
-        max_blanks = num**dim
+        max_blanks = num ** dim
         blanks = int(input('Number of Blanks (max is {}):'.format(max_blanks)))
         generate(dim, num, blanks)
 
