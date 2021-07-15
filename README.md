@@ -49,3 +49,18 @@ This python file acts as the main controller for the entire program. It has acce
 
 ### The sudoku .txt files
 Looking into the directory of the program, you will see that there are various .txt files of varying names, such as “9x9.txt” or “9x9x9.txt”. These are actually the files that store the generated example puzzles which the solver attempts to solve. If it is in the “nxn.txt” format, then it is a 2D puzzle, and similarly the “nxnxn.txt” format means that it is a 3D puzzle.
+
+## Flowchart of solver
+![flow_chart](https://user-images.githubusercontent.com/74283978/125822973-8b458a63-fb7c-4c0b-aaa9-9a2707c26b5b.png)
+
+## What my 2D solver can do
+It can solve puzzles of sizes 4x4-25x25
+
+## What my 3D solver can do
+It can solve puzzles of sizes 4x4x4-25x25x25. Possibly more, but I have not tried yet.
+
+## What is needed for the program
+You need python 3, Dwave Ocean sdk, and matplotlib
+
+## How to use the solver
+
