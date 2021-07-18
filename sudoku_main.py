@@ -40,7 +40,7 @@ def main():
     if operation == 'solve':
         QUBO_type = input('QUBO Type (complex or simple): ').lower()
         make_plot = int(input('Make Plot? (1 or 0): '))
-        solve(filename, QUBO_type, "neal", 10, make_plot)
+        solve(filename, QUBO_type, "neal", 30, make_plot)
     elif operation == 'generate':
         dim = 1
         for i in filename:
