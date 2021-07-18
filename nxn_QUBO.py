@@ -12,6 +12,7 @@ def gen_graph_var(var, val):
 
 
 # Simple implementation of sudoku puzzle as a mathematical graph
+# This is not used anymore, so this may be ignored
 def gen_nodes_edges_simple(n):
     nodes = []
     edges = []

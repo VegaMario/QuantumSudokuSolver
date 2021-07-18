@@ -13,6 +13,7 @@ def var_generate2(var, val):
 
 
 # simple implementation of the graph representation of 3 dimensional sudoku
+# This is not used anymore, so this may be ignored
 def gen_edges_nodes_simple(n):
     nodes = []  # will store the nodes
     edges = []  # will store the edges
