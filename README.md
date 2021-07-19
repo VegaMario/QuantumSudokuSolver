@@ -77,10 +77,11 @@ Also, make sure the n you choose is an integer such that its square root is also
 ### if solving:
 You have to specify which QUBO generator you want to use. Complex QUBO includes a graph coloring application in the equations, and simple QUBO does not.
 
-Then you must specify if you want to make a plot or not. 1 for yes, 0 for no.
+Then you must specify if you want to make a plot (1 for yes, 0 for no) and the number of samples. 
 
-        QUBO Type (complex or simple): complex
-        Make Plot? (1 or 0): 1
+        QUBO Type? (1 for complex, 0 for simple): 1
+        Make Plot? (1 for yes, 0 for no): 1
+        How many samples?: 5
         
 ### if generating:
 Just specify the number of blanks you want the puzzle to have. It tells you the maximum number of blanks the puzzle can have, so don't go over that number.
