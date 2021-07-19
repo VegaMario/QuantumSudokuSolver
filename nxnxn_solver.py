@@ -243,7 +243,7 @@ def solve_nxnxn(name, complexity, sampler_name, reads, plot):
         sampleset = sampler.sample(bqm, max_iter=reads, convergence=3)
     else:
         sampleset = sampler.sample(bqm, num_reads=reads)  # sample the bqm to generate a sampleset
-
+    print('----------sampleset----------')
     print(sampleset)
     sample = sampleset.first.sample  # take the best solutin from the sampleset
     final_sudoku, result = print_result(sample, sudoku)  # print the results

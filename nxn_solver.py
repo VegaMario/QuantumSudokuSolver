@@ -172,9 +172,10 @@ def solve_nxn(name, complexity, sampler_name, reads, plot):
         sampleset = sampler.sample(bqm, max_iter=reads, convergence=3)
     else:
         sampleset = solve_bqm(bqm, sampler, reads)
-
+    print('----------sampleset----------')
     print(sampleset)
     sample = sampleset.first.sample  # get the best solution
+    print('----------Sampler Solution----------')
     final_sudoku, result = print_result(sample, sudoku_puzzle)  # print the best solution found and check if correct
 
     if plot:

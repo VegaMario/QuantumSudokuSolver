@@ -21,10 +21,8 @@ def solve(filename, qubotype, samplername, numreads, plot):
     qtype = ''
     if qubotype:
         qtype = 'complex'
-        print(qtype)
     else:
         qtype = 'simple'
-        print(qtype)
     for i in filename:
         if i == 'x':
             dim += 1
@@ -47,7 +45,8 @@ def main():
     if operation == 'solve':
         QUBO_type = int(input('QUBO Type? (1 for complex, 0 for simple): '))
         make_plot = int(input('Make Plot? (1 for yes, 0 for no): '))
-        solve(filename, QUBO_type, "neal", 30, make_plot)
+        num_samples = int(input('How many samples?: '))
+        solve(filename, QUBO_type, "neal", num_samples, make_plot)
     elif operation == 'generate':
         dim = 1
         for i in filename:
