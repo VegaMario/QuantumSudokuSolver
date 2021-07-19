@@ -14,12 +14,12 @@ My approach to implementing the quantum sudoku solver involved formulating Quadr
 ![Picture1](https://user-images.githubusercontent.com/74283978/125513782-3b855fcd-c196-4d49-8a72-8440951f275b.png)
 
 ## Explaining my 2D QUBO equation
-In my equations, each variable is represented by a pair of c and d letters. c represents a particular cell of the sudoku puzzle using coordinates (i, j), and d represents the particular kth digit being used out of the n possible digits. I group these two properties as one variable in order to allow me to differentiate which part of the variable represents the cell and which part represents the digit. The indices i, j, and k also represent the order in which the values will be cycled through. Generally, the index that is cycled through first is the one that is enclosed by the innermost parentheses and so on. 
+In my equations, each variable is represented by a pair of c and d letters. c represents a particular cell of the sudoku puzzle using two coordinate indices, and d represents the particular digit being used out of the n possible digits. I group these two properties as one variable in order to allow me to differentiate which part of the variable represents the cell and which part represents the digit. The indices i, j, and k represent the order in which the values will be cycled through. Generally, the index that is cycled through first is the one that is enclosed by the innermost parentheses and so on. 
 
 ## Explaining my 3D QUBO equation
 My equations for the 3D sudoku solver are similar to those of the 2D sudoku. However, for these equations, there is one more index as a consequence of the additional dimension. So, we now have indices i, j, k, and l. 
 
-Each variable is represented by a pair of c and d letters. c represents a particular cell of the sudoku puzzle using coordinates (i, j, k), and d represents the particular lth digit being used out of the n possible digits.
+Each variable is represented by a pair of c and d letters. c represents a particular cell of the sudoku puzzle using three coordinate indices, and d represents the particular digit being used out of the n possible digits.
 
 ## How the solver works
 The program I have written for my Sudoku solver can be divided into two parts: the nxn Sudoku solver (2D) and the nxnxn Sudoku solver (3D). There are 4 python files associated with each solver. 
