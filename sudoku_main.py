@@ -8,6 +8,7 @@ from hybrid.reference import KerberosSampler
 
 # generate a sudoku puzzle
 def generate(dim, nsize, blanks):
+    # only 2D or 3D puzzles are allowed
     if dim == 2:
         nxn_generate.gen_nxn(nsize, blanks)
     elif dim == 3:
@@ -18,11 +19,13 @@ def generate(dim, nsize, blanks):
 
 # solve a sudoku puzzle
 def solve(filename, qubotype, samplername, numreads, plot, dim):
+    # use complex or simple QUBO?
     if qubotype:
         qtype = 'complex'
     else:
         qtype = 'simple'
     print("----------{}D Solver----------".format(dim))
+    # Dimension can only be 2D or 3D
     if dim == 2:
         nxn_solver.solve_nxn(filename + ".txt", qtype, samplername, numreads, plot)
     elif dim == 3:
@@ -40,6 +43,7 @@ def main():
     n = filename.split('x')
     c = filename.split(n[0])
     c = list(filter(None, c))
+    # checking for some possible errors in the user input
     for i in c:
         if i != 'x':
             print('invalid input')
@@ -59,6 +63,7 @@ def main():
         print('invalid input: incorrect dimensions')
         exit()
     if operation == 'solve' or operation == 'generate':
+        # prepare to perform the operation
         if operation == 'solve':
             QUBO_type = int(input('QUBO Type? (1 for complex, 0 for simple): '))
             make_plot = int(input('Make Plot? (1 for yes, 0 for no): '))

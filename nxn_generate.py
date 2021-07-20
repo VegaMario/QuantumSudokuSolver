@@ -64,7 +64,7 @@ def relabel_values(board):
 
 
 # used for filling in the puzzle with empty spots, represented as 0s
-def coordinate_map(sudoku, blanks_num):
+def empty_fill(sudoku, blanks_num):
     coord_list = []
     # make a list of coordinates
     n = len(sudoku)
@@ -73,7 +73,7 @@ def coordinate_map(sudoku, blanks_num):
             coord_list.append(var_gen(i, j))
     coord_map = set(coord_list)
 
-    # empty random coordinates
+    # make random coordinates empty by replacing current value with 0
     for i in range(blanks_num):
         coord = random.choice(coord_list)
         row, col = map(int, coord.split(','))
@@ -82,7 +82,7 @@ def coordinate_map(sudoku, blanks_num):
         coord_list = list(coord_map)
 
 
-# this formate will be used for the coordinates of the puzzle
+# this format will be used for the coordinates of the puzzle
 def var_gen(row, col):
     return f"{row},{col}"
 
@@ -109,7 +109,7 @@ def write_file(name, sudoku):
 def gen_nxn(n, blanks_num):
     name = "{}x{}".format(n, n)
     board = generate_shuffled_2d_board(int(math.sqrt(n)))
-    coordinate_map(board, blanks_num)
+    empty_fill(board, blanks_num)
     write_file(name, board)
     print('----------The following nxn sudoku game has been generated into the {}.txt file: ----------'.format(name))
     print_result(board)

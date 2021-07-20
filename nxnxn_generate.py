@@ -72,8 +72,8 @@ def write_file(name, sudoku):
         f.write("\n")
 
 
-# used for placing a number empty spots on the sudoku puzzle
-def coordinate_map(sudoku, blanks_num):
+# used for placing a number of empty spots on the sudoku puzzle
+def empty_fill(sudoku, blanks_num):
     coord_list = []
     # making a list of coordinates
     n = len(sudoku)
@@ -83,7 +83,7 @@ def coordinate_map(sudoku, blanks_num):
                 coord_list.append(var_gen(i, j, k))
     coord_map = set(coord_list)
 
-    # filling random spots in the sudoku puzzle with empty spots, represented as 0s
+    # filling random spots in the sudoku puzzle with 0s
     for i in range(blanks_num):
         coord = random.choice(coord_list)
         lay, row, col = map(int, coord.split(','))
@@ -101,7 +101,7 @@ def var_gen(lay, row, col):
 def gen_nxnxn(n, blanks_num):
     name = "{}x{}x{}".format(n, n, n)
     board = generate_3d_board(int(math.sqrt(n)))
-    coordinate_map(board, blanks_num)
+    empty_fill(board, blanks_num)
     write_file(name, board)
     print('----------The following nxnxn sudoku game has been generated into the {}.txt file: ----------'.format(name))
     print_result(board)
