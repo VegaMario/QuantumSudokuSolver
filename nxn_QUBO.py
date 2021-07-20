@@ -2,6 +2,7 @@ from collections import defaultdict
 import math
 
 
+# generate variables
 def var_generate(row, col, val):
     return f"{row},{col}_{val}"
 
@@ -84,7 +85,7 @@ def gen_QUBO_complex(sudoku_puzzle, nodes, edges, gamma):
     mn = 1.5
 
     offset = ((3 + mn) * n**2) * gamma + len(edges) * 2
-    # the graph constraint
+    # the graph constraint, every cell must use exactly one digit
     for i in nodes:
         for j in range(len(values)):
             varj = gen_graph_var(i, j + 1)
@@ -93,7 +94,7 @@ def gen_QUBO_complex(sudoku_puzzle, nodes, edges, gamma):
                 varjj = gen_graph_var(i, jj + 1)
                 Q[(varj, varjj)] += 2 * gamma * mn  # off-diagonal
 
-    # the graph objective
+    # the graph objective, pairs of cells that share an edge must have different digits
     for i in range(len(values)):
         for j, k in edges:
             varj = gen_graph_var(j, i + 1)
@@ -140,7 +141,7 @@ def gen_QUBO_complex(sudoku_puzzle, nodes, edges, gamma):
 
 
 # Generate the QUBo matrix but don't take into account the nodes and edges of the graph
-# it might just be that the simple case works best for the nxn sudokus
+# it might just be that the simple case works best for the nxn sudoku solver
 def gen_QUBO_simple(sudoku_puzzle):
     n = len(sudoku_puzzle)
     m = int(math.floor(int(math.sqrt(n))))

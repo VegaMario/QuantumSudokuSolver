@@ -50,7 +50,7 @@ def lines_adjust(lines):
 
 
 # generate a sudoku puzzle of size nxnxn
-def generate_sudoku(n):
+def generate_empty_sudoku(n):
     layers = []  # store the layers
     lines = []  # stores the lines
     line = []  # stores each line
@@ -88,7 +88,7 @@ def print_result(sample, sudoku):
     n = int(len(copy))
     result = 'correct'
 
-    for var, val in sample.items():  # if the variable was used, then add it to the flat list
+    for var, val in sample.items():  # if the variable was set to one, then add it to the flat list
         if val == 1:
             flat.append(var)
 

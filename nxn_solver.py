@@ -7,7 +7,6 @@ from hybrid.reference import KerberosSampler
 from dwave_qbsolv import QBSolv
 import nxn_QUBO
 
-# By Mario Vega
 # generate the variables
 import nxn_plot
 
@@ -136,7 +135,7 @@ def check_solution(solved_sudoku):
 
 
 # If you have no puzzle to submit, then just try to generate an empty sudoku grid
-def generate_sudoku(n):
+def generate_empty_sudoku(n):
     lines = []
     line = []
     for row in range(n):
@@ -163,11 +162,9 @@ def solve_nxn(name, complexity, sampler_name, reads, plot):
     elif complexity.lower() == "simple":
         QUBO, const = nxn_QUBO.gen_QUBO_simple(sudoku_puzzle)
 
-    # QUBO3 = gen_QUBO(sudoku_puzzle)
     bqm = convert_to_bqm(QUBO, const)  # convert the QUBO to a BQM
     bqm = givens_fill(sudoku_puzzle, bqm)  # for each given, adjust the BQM
 
-    # sampleset = sampler.sample(bqm, max_iter=10, convergence=3)  # sample the BQM
     if sampler_name == "kerberos":
         sampleset = sampler.sample(bqm, max_iter=reads, convergence=3)
     else:

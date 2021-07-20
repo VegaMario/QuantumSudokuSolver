@@ -20,7 +20,7 @@ def plot_2D_sudoku(sudoku, result):
 
     fig = plt.figure(figsize=(n, n))  # new plot
     fig.set_size_inches(8, 8)
-
+    # place a sudoku grid on a subplot and fill in the digits in the cells
     ax = fig.add_subplot(111)
     if n == 4:
         img = plt.imread("sudok4.png")
@@ -34,7 +34,7 @@ def plot_2D_sudoku(sudoku, result):
     elif n == 25:
         img = plt.imread("sudok25.png")
         ax.imshow(img, extent=[-0.3, n, -0.3, n])
-
+    # filling in the digits into the cells of the plot
     for j in range(n ** 2):
         ax.text(x=cols[j], y=rows[j], s=str(vals[j]))
     ax.set_xticks(range(n))
