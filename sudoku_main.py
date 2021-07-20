@@ -17,16 +17,11 @@ def generate(dim, nsize, blanks):
 
 
 # solve a sudoku puzzle
-def solve(filename, qubotype, samplername, numreads, plot):
-    dim = 1
-    qtype = ''
+def solve(filename, qubotype, samplername, numreads, plot, dim):
     if qubotype:
         qtype = 'complex'
     else:
         qtype = 'simple'
-    for i in filename:
-        if i == 'x':
-            dim += 1
     print("----------{}D Solver----------".format(dim))
     if dim == 2:
         nxn_solver.solve_nxn(filename + ".txt", qtype, samplername, numreads, plot)
@@ -34,7 +29,6 @@ def solve(filename, qubotype, samplername, numreads, plot):
         nxnxn_solver.solve_nxnxn(filename + ".txt", qtype, samplername, numreads, plot)
     else:
         print("Invalid")
-    dim = 1
 
 
 def main():
@@ -69,7 +63,7 @@ def main():
             QUBO_type = int(input('QUBO Type? (1 for complex, 0 for simple): '))
             make_plot = int(input('Make Plot? (1 for yes, 0 for no): '))
             num_samples = int(input('How many samples?: '))
-            solve(filename, QUBO_type, "neal", num_samples, make_plot)
+            solve(filename, QUBO_type, "neal", num_samples, make_plot, dim)
         elif operation == 'generate':
             num = int(n[0])
             max_blanks = num ** dim
