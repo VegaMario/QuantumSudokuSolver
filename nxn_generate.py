@@ -111,6 +111,6 @@ def gen_nxn(n, blanks_num):
     board = generate_shuffled_2d_board(int(math.sqrt(n)))
     coordinate_map(board, blanks_num)
     write_file(name, board)
-    print('The following nxn sudoku game has been generated into the {}.txt file: '.format(name))
+    print('----------The following nxn sudoku game has been generated into the {}.txt file: ----------'.format(name))
     print_result(board)
     return name + ".txt"

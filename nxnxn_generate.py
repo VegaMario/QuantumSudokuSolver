@@ -103,6 +103,6 @@ def gen_nxnxn(n, blanks_num):
     board = generate_3d_board(int(math.sqrt(n)))
     coordinate_map(board, blanks_num)
     write_file(name, board)
-    print('The following nxnxn sudoku game has been generated into the {}.txt file: '.format(name))
+    print('----------The following nxnxn sudoku game has been generated into the {}.txt file: ----------'.format(name))
     print_result(board)
     return name + ".txt"

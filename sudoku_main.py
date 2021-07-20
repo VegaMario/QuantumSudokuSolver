@@ -1,3 +1,4 @@
+import math
 import time
 import nxn_generate, nxn_plot, nxn_QUBO, nxn_solver
 import nxnxn_generate, nxnxn_plot, nxnxn_QUBO, nxnxn_solver
@@ -42,26 +43,41 @@ def main():
     operation = sys.argv[1]
     filename = sys.argv[2]
 
-    if operation == 'solve':
-        QUBO_type = int(input('QUBO Type? (1 for complex, 0 for simple): '))
-        make_plot = int(input('Make Plot? (1 for yes, 0 for no): '))
-        num_samples = int(input('How many samples?: '))
-        solve(filename, QUBO_type, "neal", num_samples, make_plot)
-    elif operation == 'generate':
-        dim = 1
-        for i in filename:
-            if i == 'x':
-                dim += 1
-        num = ''
-        for i in filename:
-            if i != 'x':
-                num += i
-            else:
-                break
-        num = int(num)
-        max_blanks = num ** dim
-        blanks = int(input('Number of Blanks (max is {}):'.format(max_blanks)))
-        generate(dim, num, blanks)
+    n = filename.split('x')
+    c = filename.split(n[0])
+    c = list(filter(None, c))
+    for i in c:
+        if i != 'x':
+            print('invalid input')
+            exit()
+    for i in n:
+        if i != n[0]:
+            print('invalid input')
+            exit()
+    if not(n[0].isdigit()):
+        print('invalid input: n should be a number')
+        exit()
+    if not(math.sqrt(int(n[0])).is_integer()):
+        print('invalid input: size of n is not valid')
+        exit()
+    dim = len(n)
+    if not(dim == 2 or dim == 3):
+        print('invalid input: incorrect dimensions')
+        exit()
+    if operation == 'solve' or operation == 'generate':
+        if operation == 'solve':
+            QUBO_type = int(input('QUBO Type? (1 for complex, 0 for simple): '))
+            make_plot = int(input('Make Plot? (1 for yes, 0 for no): '))
+            num_samples = int(input('How many samples?: '))
+            solve(filename, QUBO_type, "neal", num_samples, make_plot)
+        elif operation == 'generate':
+            num = int(n[0])
+            max_blanks = num ** dim
+            blanks = int(input('Number of Blanks (max is {}):'.format(max_blanks)))
+            generate(dim, num, blanks)
+    else:
+        print('invalid input')
+        exit()
 
 
 start_time = time.time()
