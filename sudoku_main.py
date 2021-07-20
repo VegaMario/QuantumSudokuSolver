@@ -76,4 +76,4 @@ def main():
 
 start_time = time.time()
 main()
-print("--- %s seconds ---" % (time.time() - start_time))
+print("---------- %s seconds ----------" % (time.time() - start_time))
