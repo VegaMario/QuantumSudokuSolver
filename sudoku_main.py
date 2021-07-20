@@ -35,7 +35,7 @@ def solve(filename, qubotype, samplername, numreads, plot, dim):
 
 
 def main():
-    print('---------- Make sure you are using Dwave Ocean ----------')
+    # Make sure you are using Dwave ocean
     # python sudoku_main.py solve 9x9x9
     # python sudoku_main.py generate 9x9x9
     operation = sys.argv[1]
