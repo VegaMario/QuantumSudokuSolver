@@ -3,9 +3,9 @@
 
 I have designed a quantum sudoku solver that can solve both 2D and 3D sudoku puzzles using the programming language of python along with Dwave’s Ocean sdk. This was implemented in the remaining 3 weeks of my Quantum Computing course.
 
-My solver is successfully able to solve 2D and 3D Sudoku puzzles of varying size and emptiness using the approach of quantum annealing, a branch of quantum computing in which a quantum system attempts to solve a user-designed BQM by finding the lowest energy state.
+My solver is successfully able to solve 2D and 3D Sudoku puzzles of varying size and difficulty using the approach of quantum annealing, a branch of quantum computing in which a quantum system attempts to solve a BQM by finding the lowest energy state.
 
-My approach to implementing the quantum sudoku solver involved formulating Quadratic Unconstrained Binary Optimization equations for both 2-dimensional and 3-dimensional Sudoku puzzles and using the equations to write a program which can generate QUBO matrices based on arbitrary user-submitted Sudoku puzzles. The QUBO matrix would then be converted into BQM to be inputted into the sampler to obtain a solution. As an additional feature, I utilized the matplotlib tool to generate plots of solutions to assist with the visualization of the results. 
+My approach to implementing the quantum sudoku solver involved formulating Quadratic Unconstrained Binary Optimization equations for both 2-dimensional and 3-dimensional Sudoku puzzles and using the equations to write a program which can generate QUBO matrices based on arbitrary Sudoku puzzles. The QUBO matrix would then be converted into a BQM to be inputted into the sampler to obtain a solution. As an additional feature, I utilized matplotlib to generate plots of solutions to assist with the visualization of the results. 
 
 ## My 2D sudoku QUBO Equation
 ![Picture4](https://user-images.githubusercontent.com/74283978/125514349-82697311-185d-42c6-9a65-37cdd60c7938.png)
