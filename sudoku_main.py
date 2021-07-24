@@ -71,7 +71,9 @@ def main():
             while QUBO_type != 1 and QUBO_type != 0:
                 QUBO_type = int(input('QUBO Type? (1 for complex, 0 for simple): '))
             while make_plot != 1 and make_plot != 0:
-                make_plot = int(input('Make Plot? (1 for yes, 0 for no): '))
+                make_plot = int(input('Make Plots? (1 for yes, 0 for no): '))
+            if make_plot:
+                print('----------After viewing the plots, close them to allow the program to continue----------')
             num_samples = int(input('How many samples?: '))
             solve(filename, QUBO_type, "neal", num_samples, make_plot, dim)
         elif operation == 'generate':

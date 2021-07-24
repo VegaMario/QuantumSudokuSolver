@@ -226,7 +226,33 @@ def convert_to_bqm(Q, const):
 def solve_nxnxn(name, complexity, sampler_name, reads, plot):
     sudoku = scan_sudoku(name)
     n = len(sudoku)
-
+    if plot:
+        nxnxn_plot.plot_3D_sudoku(sudoku, "")
+    print("----------Will attempt to solve the following {}x{}x{} Sudoku Puzzle----------".format(n, n, n))
+    # x direction layers
+    print('----------X-direction layers----------')
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                sys.stdout.write(str(sudoku[i][j][k]) + "\t")
+            print()
+        print()
+    # y direction layers
+    print('----------Y-direction layers----------')
+    for k in range(n):
+        for j in range(n):
+            for i in range(n):
+                sys.stdout.write(str(sudoku[i][j][k]) + "\t")
+            print()
+        print()
+    # z direction layers
+    print('----------Z-direction layers----------')
+    for j in range(n):
+        for i in range(n):
+            for k in range(n):
+                sys.stdout.write(str(sudoku[i][j][k]) + "\t")
+            print()
+        print()
     if complexity.lower() == "complex":
         nodes, edges = nxnxn_QUBO.gen_edges_nodes_complex(n)  # generate the nodes and edges of the sudoku based on
         # the size n
@@ -246,6 +272,7 @@ def solve_nxnxn(name, complexity, sampler_name, reads, plot):
     print('----------sampleset----------')
     print(sampleset)
     sample = sampleset.first.sample  # take the best solutin from the sampleset
+    print('----------Best solution found by the sampler----------')
     final_sudoku, result = print_result(sample, sudoku)  # print the results
 
     if plot:

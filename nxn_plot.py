@@ -40,7 +40,9 @@ def plot_2D_sudoku(sudoku, result):
     ax.set_xticks(range(n))
     ax.set_yticks(range(n))
     ax.axis('off')
-
-    fig.suptitle('{} Solution of the {}x{} Sudoku'.format(result, n, n), fontsize=16)
+    if result == "":
+        fig.suptitle('The 2D solver will attempt to solve the {}x{} Sudoku (close window)'.format(n, n), fontsize=16)
+    else:
+        fig.suptitle('{} Solution of the {}x{} Sudoku'.format(result, n, n), fontsize=16)
 
     plt.show()  # show the plot

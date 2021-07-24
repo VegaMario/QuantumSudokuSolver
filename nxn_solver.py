@@ -150,6 +150,13 @@ def generate_empty_sudoku(n):
 def solve_nxn(name, complexity, sampler_name, reads, plot):
     sudoku_puzzle = get_sudoku_puzzle(name)  # read the file
     nn = len(sudoku_puzzle)  # used for either generating sudoku grids or generating nodes and edges
+    if plot:
+        nxn_plot.plot_2D_sudoku(sudoku_puzzle, "")
+    print("----------Will attempt to solve the following {}x{} Sudoku Puzzle----------".format(nn, nn))
+    for row in sudoku_puzzle:  # print the results
+        for val in row:
+            sys.stdout.write(str(val) + "\t")
+        print()
     sampler = set_sampler(sampler_name)  # we may select our sempler in this manner, or just do it the normal way
     gamma = 100  # you may need to play around with this value to give you good results
 
@@ -172,7 +179,7 @@ def solve_nxn(name, complexity, sampler_name, reads, plot):
     print('----------sampleset----------')
     print(sampleset)
     sample = sampleset.first.sample  # get the best solution
-    print('----------Sampler Solution----------')
+    print('----------Best solution found by the sampler----------')
     final_sudoku, result = print_result(sample, sudoku_puzzle)  # print the best solution found and check if correct
 
     if plot:

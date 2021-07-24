@@ -35,8 +35,10 @@ def plot_3D_sudoku(sudoku, result):
     ax.set_xticks(range(n))
     ax.set_yticks(range(n))
     ax.set_zticks(range(n))
-
-    ax.set_title("{} Solution of the {}x{}x{} Sudoku".format(result.capitalize(), n, n, n))
+    if result == "":
+        ax.set_title('The 3D solver will attempt to solve the {}x{}x{} Sudoku (close window)'.format(n, n, n), fontsize=16)
+    else:
+        ax.set_title("{} Solution of the {}x{}x{} Sudoku".format(result.capitalize(), n, n, n))
     ax.set_xlabel("Y")
     ax.set_ylabel("X")
     ax.set_zlabel("Z")
