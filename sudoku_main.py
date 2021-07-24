@@ -66,8 +66,12 @@ def main():
     if operation == 'solve' or operation == 'generate':
         # prepare to perform the operation
         if operation == 'solve':
-            QUBO_type = int(input('QUBO Type? (1 for complex, 0 for simple): '))
-            make_plot = int(input('Make Plot? (1 for yes, 0 for no): '))
+            QUBO_type = -1
+            make_plot = -1
+            while QUBO_type != 1 and QUBO_type != 0:
+                QUBO_type = int(input('QUBO Type? (1 for complex, 0 for simple): '))
+            while make_plot != 1 and make_plot != 0:
+                make_plot = int(input('Make Plot? (1 for yes, 0 for no): '))
             num_samples = int(input('How many samples?: '))
             solve(filename, QUBO_type, "neal", num_samples, make_plot, dim)
         elif operation == 'generate':
