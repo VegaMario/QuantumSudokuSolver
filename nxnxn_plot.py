@@ -25,7 +25,8 @@ def plot_3D_sudoku(sudoku, result):
                 vals.append(sudoku[i][j][k])
 
     for i in range(n**3):
-        ax.text3D(x=cols[i], y=lays[i], z=rows[i], s=str(vals[i]))
+        if str(vals[i]) != '0':
+            ax.text3D(x=cols[i], y=lays[i], z=rows[i], s=str(vals[i]))
 
     # just making some adjustments to the plot to make it easier to understand
     ax.set_xlim(0, n - 1)
@@ -67,7 +68,8 @@ def plot_3D_sudoku(sudoku, result):
             img = plt.imread("sudok.png")
             ax.imshow(img, extent=[-1, n, -1, n])
         for j in range(n**2):
-            ax.text(x=ncols[i][j], y=nrows[i][j], s=str(nvals[i][j]))
+            if str(nvals[i][j]) != '0':
+                ax.text(x=ncols[i][j], y=nrows[i][j], s=str(nvals[i][j]))
         ax.set_title("Layer X = {}".format(i), y=1.05, fontsize=8)
         ax.set_xticks(range(n))
         ax.set_yticks(range(n))
@@ -92,7 +94,8 @@ def plot_3D_sudoku(sudoku, result):
             img = plt.imread("sudok.png")
             ax.imshow(img, extent=[-1, n, -1, n])
         for j in range(n**2):
-            ax.text(x=ncols[i][j], y=nrows[i][j], s=str(nvals[i][j]))
+            if str(nvals[i][j]) != '0':
+                ax.text(x=ncols[i][j], y=nrows[i][j], s=str(nvals[i][j]))
         ax.set_title("Layer Y = {}".format(i), y=1.05, fontsize=8)
         ax.set_xticks(range(n))
         ax.set_yticks(range(n))
@@ -117,7 +120,8 @@ def plot_3D_sudoku(sudoku, result):
             img = plt.imread("sudok.png")
             ax.imshow(img, extent=[-1, n, -1, n])
         for j in range(n**2):
-            ax.text(x=ncols[i][j], y=nrows[i][j], s=str(nvals[i][j]))
+            if str(nvals[i][j]) != '0':
+                ax.text(x=ncols[i][j], y=nrows[i][j], s=str(nvals[i][j]))
         ax.set_title("Layer Z = {}".format(i), y=1.05, fontsize=8)
         ax.set_xticks(range(n))
         ax.set_yticks(range(n))

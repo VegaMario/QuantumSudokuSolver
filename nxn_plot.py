@@ -36,7 +36,8 @@ def plot_2D_sudoku(sudoku, result):
         ax.imshow(img, extent=[-0.3, n, -0.3, n])
     # filling in the digits into the cells of the plot
     for j in range(n ** 2):
-        ax.text(x=cols[j], y=rows[j], s=str(vals[j]))
+        if str(vals[j]) != '0':
+            ax.text(x=cols[j], y=rows[j], s=str(vals[j]))
     ax.set_xticks(range(n))
     ax.set_yticks(range(n))
     ax.axis('off')
